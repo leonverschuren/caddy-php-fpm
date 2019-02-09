@@ -1,7 +1,7 @@
-FROM php:7.2-fpm
+FROM php:5.6-fpm
 
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev zip unzip
-RUN docker-php-ext-install zip pdo pdo_mysql opcache mbstring intl && pecl install apcu-5.1.16 && docker-php-ext-enable apcu
+RUN apt-get update && apt-get install -y zlib1g-dev zip unzip
+RUN docker-php-ext-install mysql zip
 
 # Install Caddy
 RUN curl --silent --show-error --fail --location \
